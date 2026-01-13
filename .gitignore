@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+myvenv/
+venv/
+env/
+
+# Django stuff
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.mo
+
+# Django static & media (if generated)
+staticfiles/
+media/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (if used later)
+node_modules/
+
+# Cache
+*.cache
