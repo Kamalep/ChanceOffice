@@ -2,12 +2,18 @@ import uuid
 from django.db import models
 
 OPPORTUNITY_TYPES = [
-    ('scholarship', 'Scholarship'),
-    ('fellowship', 'Fellowship'),
-    ('training', 'Training'),
-    ('funding', 'Funding'),
-    ('competition', 'Competition'),
+    ('scholarships', 'Scholarships'),
+    ('funding_grants', 'Funding Grants'),
+    ('cultural_exchange', 'Cultural Exchange'),
+    ('global_competitions', 'Global Competitions'),
+    ('hackathons', 'Hackathons'),
+    ('fellowships', 'Fellowships'),
+    ('training_programs', 'Training Programs'),
+    ('global_conferences', 'Global Conferences'),
+    ('summer_programs', 'Summer Programs'),
+    ('volunteering_programs', 'Volunteering Programs'),
 ]
+
 
 
 class Opportunity(models.Model):

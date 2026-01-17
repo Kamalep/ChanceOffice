@@ -1,0 +1,126 @@
+/* Reset */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f9fc;
+    color: #333;
+}
+
+/* Header */
+header {
+    background: #ffffff;
+    padding: 18px 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+nav a.active,
+nav a:hover {
+    color: #007bff;
+}
+
+/* Page Header */
+.page-header {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    max-width: 600px;
+    margin: auto;
+    color: #555;
+}
+
+/* Cards Grid */
+.cards-container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* Card */
+.card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: 0.2s ease;
+    border-left: 4px solid #007bff;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #007bff;
+}
+
+.card p {
+    color: #555;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #e0e0e0;
+    background: #fff;
+    color: #666;
+}
+.card-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 14px;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s ease;
+}
+
+.card-btn:hover {
+    background: #0056cc;
+}
+
+
+.features-section {
+    max-width: 900px;
+    margin: 40px auto 20px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.feature-item {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}

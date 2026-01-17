@@ -1,0 +1,235 @@
+/* ===========================
+   Global
+=========================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background: #f8f9fb;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ===========================
+   Header
+=========================== */
+header {
+    background: #ffffff;
+    padding: 18px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+nav a {
+    color: #333;
+    transition: 0.2s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: #007bff;
+}
+
+/* ===========================
+   Page Header
+=========================== */
+.page-header {
+    text-align: center;
+    padding: 60px 20px 30px;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 18px;
+    color: #555;
+}
+
+/* ===========================
+   Opportunities Container
+=========================== */
+.opportunities-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* قائمة الكروت */
+#opportunities-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* Opportunity Card */
+.opportunity-card {
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    transition: 0.2s ease;
+    border-left: 4px solid #007bff;
+}
+
+.opportunity-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.opportunity-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.opportunity-card p {
+    margin: 6px 0;
+    color: #555;
+    font-size: 15px;
+}
+
+.apply-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.apply-btn:hover {
+    background: #005fcc;
+}
+
+/* ===========================
+   Pagination
+=========================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin: 40px 0;
+}
+
+.pagination button {
+    padding: 10px 18px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.pagination button:hover {
+    background: #005fcc;
+}
+
+.pagination span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* ===========================
+   Footer
+=========================== */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    font-size: 15px;
+    color: #555;
+}
+
+/* ===========================
+   Filter Bar
+=========================== */
+.filter-bar {
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+/* Inputs & Selects */
+.filter-bar input,
+.filter-bar select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    flex: 1;
+    background: #fafafa;
+    transition: 0.2s ease;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+    border-color: #007bff;
+    background: #fff;
+    box-shadow: 0 0 4px rgba(0,123,255,0.3);
+}
+
+/* Filter Button */
+#filter-btn {
+    padding: 12px 20px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+#filter-btn:hover {
+    background: #005fcc;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 900px) {
+  #opportunities-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #opportunities-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
