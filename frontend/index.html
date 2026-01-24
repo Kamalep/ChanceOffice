@@ -33,9 +33,11 @@
       <div class="search-box">
         <span class="search-icon">🔍</span>
 
-        <input type="text" placeholder="Search scholarships, grants, internships..." class="search-input" />
+        <!-- Search -->
+        <input type="text" placeholder="Search scholarships, grants, internships..." id="search-input" />
 
-        <select class="search-select countries">
+        <!-- Country -->
+        <select id="filter-country">
           <option value="">All Countries</option>
           <option value="usa">United States</option>
           <option value="uk">United Kingdom</option>
@@ -44,7 +46,8 @@
           <option value="saudi">Saudi Arabia</option>
         </select>
 
-        <select class="search-select types">
+        <!-- Type -->
+        <select id="filter-type">
           <option value="">All Types</option>
           <option value="scholarship">Scholarships</option>
           <option value="grant">Grants</option>
@@ -52,6 +55,16 @@
           <option value="fellowship">Fellowships</option>
           <option value="training">Training Programs</option>
           <option value="exchange">Exchange Programs</option>
+        </select>
+
+        <!-- Funding -->
+        <select id="filter-funding">
+          <option value="">All Funding Types</option>
+          <option value="fully">Fully Funded</option>
+          <option value="partial">Partially Funded</option>
+          <option value="self">Self-funded</option>
+          <option value="paid">Paid</option>
+          <option value="unpaid">Unpaid</option>
         </select>
 
         <button class="search-btn">Search</button>
@@ -70,6 +83,7 @@
   <footer>
     <p>© 2026 ChanceOffice. All rights reserved.</p>
   </footer>
+
   <script src="js/index.js" defer></script>
 </body>
 

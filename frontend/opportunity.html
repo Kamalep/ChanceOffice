@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Opportunity Details – ChanceOffice</title>
+
+  <!-- ملفات الستايل العامة + الخاصة -->
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/opportunity.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="opportunities.html">Opportunities</a>
+      <a href="types.html">Opportunity Types</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h1 id="title">Loading...</h1>
+
+    <div class="meta">
+      <p><strong>Provider:</strong> <span id="provider"></span></p>
+      <p><strong>Type:</strong> <span id="type"></span></p>
+      <p><strong>Funding Type:</strong> <span id="funding"></span></p>
+      <p><strong>Country:</strong> <span id="country"></span></p>
+      <p><strong>Deadline:</strong> <span id="deadline"></span></p>
+    </div>
+
+    <h3>Description</h3>
+    <p id="description">Loading description...</p>
+
+    <a id="apply" class="apply-btn" target="_blank">Apply Now</a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 ChanceOffice. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    // قراءة ID من الرابط
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (!id) {
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Invalid Opportunity ID</h2>";
+    }
+
+    // جلب بيانات الفرصة
+    fetch(`http://127.0.0.1:8000/api/opportunities/${id}/`)
+      .then(res => res.json())
+      .then(data => renderOpportunity(data))
+      .catch(err => {
+        document.body.innerHTML = "<h2 style='text-align:center;margin-top:50px;'>Opportunity not found</h2>";
+      });
+
+    // عرض البيانات
+    function renderOpportunity(item) {
+      document.getElementById("title").textContent = item.title;
+      document.getElementById("provider").textContent = item.provider;
+      document.getElementById("type").textContent = item.type;
+      document.getElementById("funding").textContent = item.funding_type;
+      document.getElementById("country").textContent = item.country;
+      document.getElementById("deadline").textContent = item.deadline;
+      document.getElementById("description").textContent = item.description || "No description available.";
+      document.getElementById("apply").href = item.link;
+    }
+  </script>
+
+</body>
+
+</html>

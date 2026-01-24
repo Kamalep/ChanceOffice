@@ -26,7 +26,10 @@
     <h1>All Opportunities</h1>
     <p>Explore all available scholarships, grants, fellowships, and programs.</p>
   </section>
+
+  <!-- Filter Bar -->
   <section class="filter-bar">
+
     <input type="text" id="search-input" placeholder="Search opportunities..." />
 
     <select id="filter-country">
@@ -37,9 +40,17 @@
       <option value="">All Types</option>
     </select>
 
+    <select id="filter-funding">
+      <option value="">All Funding Types</option>
+      <option value="fully">Fully Funded</option>
+      <option value="partial">Partially Funded</option>
+      <option value="self">Self-funded</option>
+      <option value="paid">Paid</option>
+      <option value="unpaid">Unpaid</option>
+    </select>
+
     <button id="filter-btn">Filter</button>
   </section>
-
 
   <!-- Opportunities List -->
   <section class="opportunities-container">
@@ -47,7 +58,6 @@
       <!-- سيتم ملؤها عبر JavaScript -->
     </div>
   </section>
-
 
   <!-- Pagination -->
   <div class="pagination" id="pagination">

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChanceOffice – اكتشف الفرص العالمية</title>
+
+  <!-- ملفات التنسيق -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/index.css" />
+</head>
+
+<body>
+
+  <!-- الهيدر -->
+  <div id="header"></div>
+
+  <!-- قسم البطل -->
+  <section class="hero">
+    <div class="container">
+
+      <h1>اكتشف أفضل الفرص العالمية الموثوقة</h1>
+      <p>منح دراسية، زمالات، برامج تدريب، مؤتمرات، وتمويل… كل ذلك في مكان واحد.</p>
+
+      <a href="types.html" class="cta-btn">استعراض أنواع الفرص</a>
+
+      <!-- صندوق البحث -->
+      <div class="hero-search">
+        <div class="search-box">
+
+          <span class="search-icon">🔍</span>
+
+          <!-- البحث -->
+          <input type="text" id="search-input" placeholder="ابحث عن منح، تدريب، تمويل…" />
+
+          <!-- الدولة -->
+          <select id="filter-country">
+            <option value="">كل الدول</option>
+          </select>
+
+          <!-- النوع -->
+          <select id="filter-type">
+            <option value="">كل الأنواع</option>
+          </select>
+
+          <!-- التمويل -->
+          <select id="filter-funding">
+            <option value="">كل أنواع التمويل</option>
+            <option value="fully">ممولة بالكامل</option>
+            <option value="partial">ممولة جزئيًا</option>
+            <option value="self">ممولة ذاتيًا</option>
+            <option value="paid">مدفوعة</option>
+            <option value="unpaid">غير مدفوعة</option>
+          </select>
+
+          <button class="search-btn">بحث</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- قسم المميزات -->
+  <section class="features-section">
+    <div class="feature-item">🔒 مصادر موثوقة</div>
+    <div class="feature-item">🌍 فرص عالمية</div>
+    <div class="feature-item">⏱ تحديث مستمر</div>
+  </section>
+
+  <!-- الفوتر -->
+  <div id="footer"></div>
+
+  <!-- سكربتات -->
+  <script src="js/layout.js"></script>
+  <script src="js/index.js" defer></script>
+
+</body>
+
+</html>

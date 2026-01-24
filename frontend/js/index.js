@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
   /* ===========================
      تعبئة الدول
   =========================== */
@@ -8,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const select = document.querySelector(".search-select.countries");
       if (!select) return;
 
-      // امسح كل الخيارات ما عدا أول خيار
       select.innerHTML = '<option value="">All Countries</option>';
 
       countries.forEach(c => {
@@ -20,6 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Error loading countries:", err));
 
+
+
   /* ===========================
      تعبئة الأنواع
   =========================== */
@@ -29,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const select = document.querySelector(".search-select.types");
       if (!select) return;
 
-      // امسح كل الخيارات ما عدا أول خيار
       select.innerHTML = '<option value="">All Types</option>';
 
       types.forEach(t => {
@@ -41,9 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => console.error("Error loading types:", err));
 
+
   /* ===========================
-     زر البحث
-  =========================== */
+       زر البحث
+    =========================== */
   const searchBtn = document.querySelector(".search-btn");
   if (!searchBtn) return;
 
@@ -51,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const search = document.querySelector(".search-input")?.value || "";
     const country = document.querySelector(".search-select.countries")?.value || "";
     const type = document.querySelector(".search-select.types")?.value || "";
+    const funding = document.getElementById("filter-funding")?.value || "";
 
     let url = "opportunities.html?";
 
@@ -58,9 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (country) url += `country=${encodeURIComponent(country)}&`;
     if (type) url += `type=${encodeURIComponent(type)}&`;
 
-    // إزالة & الزائدة في النهاية
+    // 🔥 التعديل المهم هنا
+    if (funding) url += `funding_type=${encodeURIComponent(funding)}&`;
+
     url = url.replace(/&$/, "");
 
     window.location.href = url;
   });
-});
+
+});   // ← القوس الناقص تمت إضافته هنا

@@ -1,0 +1,92 @@
+/* الحاوية العامة */
+.main-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e6e9f0; /* اللون الفاتح من الصورة */
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ترتيب المحتوى */
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* الشعار */
+.logo {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #0056d2; /* الأزرق الساطع */
+}
+
+/* الروابط */
+.nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  transition: 0.2s;
+}
+
+.nav a:hover {
+  color: #0056d2; /* الأزرق الساطع */
+}
+
+/* الفوتر */
+.main-footer {
+  background: #f5f7fa; /* اللون الفاتح من الصورة */
+  padding: 40px 0 20px;
+  margin-top: 40px;
+  border-top: 1px solid #e6e9f0;
+}
+
+/* المحتوى */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* الشعار */
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  color: #0056d2; /* الأزرق الساطع */
+}
+
+/* الروابط */
+.footer-links a {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.footer-links a:hover {
+  color: #0056d2;
+}
+
+/* أسفل الفوتر */
+.footer-bottom {
+  text-align: center;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid #dcdfe6;
+  color: #555;
+  font-size: 14px;
+}

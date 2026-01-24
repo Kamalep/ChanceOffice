@@ -10,7 +10,8 @@ function getQueryParams() {
   return {
     search: params.get("search") || "",
     country: params.get("country") || "",
-    type: params.get("type") || ""
+    type: params.get("type") || "",
+    funding: params.get("funding_type") || ""   // 🔥 تعديل مهم
   };
 }
 
@@ -23,20 +24,28 @@ function loadOpportunities(page = 1) {
   const search = document.getElementById("search-input")?.value || params.search;
   const country = document.getElementById("filter-country")?.value || params.country;
   const type = document.getElementById("filter-type")?.value || params.type;
+  const funding = document.getElementById("filter-funding")?.value || params.funding;
 
   let url = `${API_URL}?page=${page}`;
 
-  if (search) url += `&search=${encodeURIComponent(search)}`;
-  if (country) url += `&country=${encodeURIComponent(country)}`;
-  if (type) url += `&type=${encodeURIComponent(type)}`;
+  // لا نرسل باراميترات فارغة
+  if (search.trim() !== "") url += `&search=${encodeURIComponent(search)}`;
+  if (country.trim() !== "") url += `&country=${encodeURIComponent(country)}`;
+  if (type.trim() !== "") url += `&type=${encodeURIComponent(type)}`;
+
+  // 🔥 التعديل الأهم
+  if (funding.trim() !== "") url += `&funding_type=${encodeURIComponent(funding)}`;
 
   fetch(url)
     .then(res => res.json())
     .then(data => {
       currentPage = page;
-      renderOpportunities(data.results);
+
+      const results = Array.isArray(data.results) ? data.results : [];
+
+      renderOpportunities(results);
       renderPagination(data.next, data.previous);
-      handleNoResults(data.results);
+      handleNoResults(results);
     })
     .catch(err => console.error("Error loading opportunities:", err));
 }
@@ -56,9 +65,10 @@ function renderOpportunities(list) {
       <h3>${item.title}</h3>
       <p><strong>Provider:</strong> ${item.provider}</p>
       <p><strong>Type:</strong> ${item.type}</p>
+      <p><strong>Funding:</strong> ${item.funding_type}</p>
       <p><strong>Country:</strong> ${item.country}</p>
       <p><strong>Deadline:</strong> ${item.deadline}</p>
-      <a href="${item.link}" target="_blank" class="apply-btn">View Details</a>
+      <a href="opportunity.html?id=${item.id}" class="apply-btn">View Details</a>
     `;
 
     container.appendChild(card);
@@ -112,7 +122,7 @@ function renderPagination(next, previous) {
 }
 
 /* ===========================
-   تعبئة الدول والأنواع
+   تعبئة الدول والأنواع والتمويل
 =========================== */
 function loadFilters() {
   const params = getQueryParams();
@@ -147,6 +157,10 @@ function loadFilters() {
       select.value = params.type;
     });
 
+  // التمويل
+  const fundingSelect = document.getElementById("filter-funding");
+  fundingSelect.value = params.funding;
+
   // البحث
   document.getElementById("search-input").value = params.search;
 }
@@ -154,9 +168,13 @@ function loadFilters() {
 /* ===========================
    زر الفلترة
 =========================== */
-document.getElementById("filter-btn").addEventListener("click", () => {
-  loadOpportunities(1);
-});
+const filterBtn = document.getElementById("filter-btn");
+if (filterBtn) {
+  filterBtn.addEventListener("click", () => {
+    loadOpportunities(1);
+  });
+}
+
 
 /* ===========================
    تشغيل الصفحة

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ChanceOffice – الفرص المتاحة</title>
+
+  <!-- ملفات التنسيق -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/opportunities.css" />
+</head>
+
+<body>
+
+  <!-- الهيدر -->
+  <div id="header"></div>
+
+  <!-- العنوان الرئيسي -->
+  <section class="page-header">
+    <div class="container">
+      <h1>استكشف الفرص المتاحة</h1>
+      <p>استخدم الفلاتر للعثور على الفرص المناسبة لك</p>
+    </div>
+  </section>
+
+  <!-- الفلاتر -->
+  <section class="filters-section">
+    <div class="container filters-box">
+
+      <!-- البحث -->
+      <input type="text" id="search-input" placeholder="ابحث عن فرصة…" />
+
+      <!-- الدولة -->
+      <select id="filter-country">
+        <option value="">كل الدول</option>
+      </select>
+
+      <!-- النوع -->
+      <select id="filter-type">
+        <option value="">كل الأنواع</option>
+      </select>
+
+      <!-- التمويل -->
+      <select id="filter-funding">
+        <option value="">كل أنواع التمويل</option>
+        <option value="fully">ممولة بالكامل</option>
+        <option value="partial">ممولة جزئيًا</option>
+        <option value="self">ممولة ذاتيًا</option>
+        <option value="paid">مدفوعة</option>
+        <option value="unpaid">غير مدفوعة</option>
+      </select>
+
+      <button class="btn btn-primary" id="search-btn">بحث</button>
+
+    </div>
+  </section>
+
+  <!-- قائمة الفرص -->
+  <section class="opportunities-list">
+    <div class="container">
+      <div id="opportunities-container" class="opps-grid">
+        <!-- سيتم تعبئة الكروت من opportunities.js -->
+      </div>
+
+      <!-- Pagination -->
+      <div id="pagination" class="pagination"></div>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <div id="footer"></div>
+
+  <!-- سكربتات -->
+  <script src="js/layout.js"></script>
+  <script src="js/opportunities.js" defer></script>
+
+</body>
+
+</html>

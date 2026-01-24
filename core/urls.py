@@ -1,29 +1,14 @@
-"""
-URL configuration for core project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/6.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
 from django.urls import path
 from siteinfo.views import home
+
 from opportunities.views import (
     OpportunityListCreateView,
     OpportunityRetrieveUpdateDeleteView,
-    OpportunityTypesView
+    CountriesView,
+    OpportunityTypesView,
+    FundingTypesView,
 )
-from opportunities.views import OpportunityCountriesView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,11 +16,16 @@ urlpatterns = [
 
     # الفرص
     path('api/opportunities/', OpportunityListCreateView.as_view()),
-    path('api/opportunities/<uuid:pk>/', OpportunityRetrieveUpdateDeleteView.as_view()),
+    # path('api/opportunities/<uuid:pk>/', OpportunityRetrieveUpdateDeleteView.as_view()),
+    path("api/opportunities/<uuid:uid>/", OpportunityRetrieveUpdateDeleteView.as_view()),
 
-    # الأنواع
-    path('api/opportunity-types/', OpportunityTypesView.as_view()),
 
     # الدول
-    path('api/opportunity-countries/', OpportunityCountriesView.as_view()),
+    path('api/countries/', CountriesView.as_view()),
+
+    # أنواع الفرص
+    path('api/opportunity-types/', OpportunityTypesView.as_view()),
+
+    # أنواع التمويل
+    path('api/funding-types/', FundingTypesView.as_view()),
 ]
