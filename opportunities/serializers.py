@@ -37,6 +37,21 @@ class OpportunitySerializer(serializers.ModelSerializer):
     type = OpportunityTypeSerializer(read_only=True)
     funding_type = FundingTypeSerializer(read_only=True)
 
+    country_id = serializers.PrimaryKeyRelatedField(
+        queryset=Country.objects.all(), source="country", write_only=True
+    )
+    type_id = serializers.PrimaryKeyRelatedField(
+        queryset=OpportunityType.objects.all(), source="type", write_only=True
+    )
+    funding_type_id = serializers.PrimaryKeyRelatedField(
+        queryset=FundingType.objects.all(), source="funding_type", write_only=True
+    )
+
+    class Meta:
+        model = Opportunity
+        fields = "__all__"
+
+
     class Meta:
         model = Opportunity
         fields = "__all__"

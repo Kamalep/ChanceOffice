@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-21o#t7@gzp6418vx(tzt^3kkpgzc##z@+oxn#bjv)xds7bnk@3
 DEBUG = True
 
 ALLOWED_HOSTS = [ 
-    'chanceoffice-api.onrender.com',
+    # 'chanceoffice-api.onrender.com',
     'localhost',
     '127.0.0.1'
     ]

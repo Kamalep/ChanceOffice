@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const country = params.get("country") || "";
   const type = params.get("type") || "";
   const funding = params.get("funding") || "";
+  const ordering = params.get("ordering") || "-created_at"; // ⭐ جديد
   const page = params.get("page") || 1;
 
   // تعبئة الفلاتر في الصفحة
@@ -16,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("filter-country").value = country;
   document.getElementById("filter-type").value = type;
   document.getElementById("filter-funding").value = funding;
+  document.getElementById("sort-select").value = ordering; // ⭐ جديد
 
   // ============================
   // 2) تحميل الدول
@@ -27,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       countries.forEach(c => {
         const option = document.createElement("option");
-        option.value = c.id; // نرسل ID للفلترة
+        option.value = c.id;
         option.textContent = `${c.flag} ${c.name_ar}`;
         select.appendChild(option);
       });
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       types.forEach(t => {
         const option = document.createElement("option");
-        option.value = t.id; // نرسل ID للفلترة
+        option.value = t.id;
         option.textContent = t.label_ar;
         select.appendChild(option);
       });
@@ -81,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (country) url += `&country=${country}`;
     if (type) url += `&type=${type}`;
     if (funding) url += `&funding_type=${funding}`;
+    if (ordering) url += `&ordering=${ordering}`; // ⭐ جديد
 
     fetch(url)
       .then(res => res.json())
@@ -165,15 +168,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const c = document.getElementById("filter-country").value;
     const t = document.getElementById("filter-type").value;
     const f = document.getElementById("filter-funding").value;
+    const o = document.getElementById("sort-select").value; // ⭐ جديد
 
     if (s) newParams.set("search", s);
     if (c) newParams.set("country", c);
     if (t) newParams.set("type", t);
     if (f) newParams.set("funding", f);
 
+    newParams.set("ordering", o); // ⭐ جديد
     newParams.set("page", 1);
 
     window.location.search = newParams.toString();
   }
+
+  // ============================
+  // 9) تغيير الترتيب
+  // ============================
+  document.getElementById("sort-select").addEventListener("change", () => {
+    params.set("ordering", document.getElementById("sort-select").value);
+    params.set("page", 1);
+    window.location.search = params.toString();
+  });
 
 });
